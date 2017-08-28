@@ -42,7 +42,8 @@ def upload_file():
             if uploader in queueDict:
                 queueDict[uploader].put(file)
                 print('Added file to existing IP address queue: ' + uploader)
-                print('Number of images in queue ' + uploader + ': ' + str(queueDict[uploader].qsize()))
+                print('Number of images in queue ' + uploader +
+                      ': ' + str(queueDict[uploader].qsize()))
             else:
                 queueDict[str(uploader)] = queue.Queue()
                 print('Created a new queue for the IP address: ' + uploader)
@@ -50,7 +51,7 @@ def upload_file():
                 print('Added file to new IP address queue: ' + uploader)
 
             # return redirect(url_for('uploaded_file',
-                                   # filename=filename))
+                # filename=filename))
     return '''
     <!doctype html>
     <title>Upload new File</title>
