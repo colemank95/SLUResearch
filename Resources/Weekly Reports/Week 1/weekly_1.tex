@@ -1,0 +1,126 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{hyperref} % Allows usage of hyperlinks
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Saint Louis University, Department of Computer Science} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Weekly Update 1\\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Kyle Coleman} % Your name
+
+\date{September 10 - 16} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	Weekly Progress 
+%----------------------------------------------------------------------------------------
+
+\section{Weekly Progress}
+
+
+
+
+%------------------------------------------------
+
+\subsection{One Page White Paper}
+\begin{enumerate}
+	\item Drafted the paper
+    \item Cut down to one page + editing
+    \item Reformatted the paper to match ACM standards
+    \item Finalized the figure by including something 	 signifying how parents upload photos to the DB
+    \item Submit to WOSC 2017 at \href{https://middleware17wosc.hotcrp.com}{the WOSC Middleware Submission Site}
+\end{enumerate}
+
+\subsection{OpenWhisk}
+\begin{enumerate}
+	\item Installed a local clone of OpenWhisk
+    \item Set up function environment
+    \item Worked on interoperability with Flask
+\end{enumerate}
+
+\subsection{Database}
+\begin{enumerate}
+	\item Drew schema for the diagram
+    \item Looked into mySQL for use
+\end{enumerate}
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	Future Work 
+%----------------------------------------------------------------------------------------
+
+\section{Next Weeks Goals}
+
+%------------------------------------------------
+
+\subsection{OpenWhisk + Flask Interoperability}
+\begin{itemize}
+	\item Finish any work relating to OpenWhisk functions and Flask 
+		\begin{itemize}
+		\item Function for detecting pictures being sent to OpenWhisk 
+		\item Function for initiating a DB Query
+        \item Function for sending data back to users
+		\end{itemize} 
+\end{itemize}
+
+%------------------------------------------------
+
+\subsection{Database}
+\begin{enumerate}
+\item If I haven't finished the DB setup, then finish it 
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	Roadblocks
+%---------------------------------------------------------------------------------------
+
+\section{Roadblocks}
+
+%------------------------------------------------
+
+None right now
+
+\end{document}
