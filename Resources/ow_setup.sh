@@ -26,3 +26,20 @@ apt-get update
 apt-get upgrade
 
 
+apt-get install git -y
+
+cd
+
+git clone https://github.com/apache/incubator-openwhisk.git openwhisk
+
+cd openwhisk
+
+cd tools/ubuntu-setup
+
+./all.sh
+
+apt-get install -V couchdb
+
+
+echo "root=password" >> /etc/couchdb/local.ini 
+
