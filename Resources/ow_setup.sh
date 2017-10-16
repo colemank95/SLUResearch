@@ -46,6 +46,11 @@ apt-get update
 
 apt-get install docker-ce -y
 
+
+groupadd docker
+
+sudo usermod -aG docker $USER
+
 # install git and clone openwhisk repo to home directory
 
 apt-get install git -y
@@ -55,10 +60,6 @@ apt-get install vim -y
 cd
 
 git clone https://github.com/apache/incubator-openwhisk.git openwhisk
-
-groupadd docker
-
-sudo usermod -aG docker $USER
 
 # run initial setup for ubuntu native development tools
 
@@ -70,7 +71,7 @@ cd tools/ubuntu-setup
 
 # install and setup couchdb
 
-apt-get install -V couchdb
+apt-get install -V couchdb -y
 
 # feel free to chane this username and password to something more secure
 # you will need to reflect those changes in the env vars below
@@ -84,8 +85,8 @@ sed -i -e 's/bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /etc/couchdb/def
 restart couchdb
 
 apt-get install python-pip -y
-yes | pip install ansible==2.3.0.0 -y
-yes | pip install jinja2==2.9.6 -y
+yes | pip install ansible==2.3.0.0 
+yes | pip install jinja2==2.9.6 
 
 cd 
 
