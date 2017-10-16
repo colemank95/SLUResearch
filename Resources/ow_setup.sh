@@ -18,13 +18,13 @@ while true; do
     esac
 done
 
-
-# 
+# general update
 
 apt-get update
 
 apt-get upgrade
 
+# install git and clone openwhisk repo to home directory
 
 apt-get install git -y
 
@@ -32,17 +32,24 @@ cd
 
 git clone https://github.com/apache/incubator-openwhisk.git openwhisk
 
+# run initial setup for ubuntu native development tools
+
 cd openwhisk
 
 cd tools/ubuntu-setup
 
 ./all.sh
 
+# install and setup couchdb
+
 apt-get install -V couchdb
 
+# feel free to chane this username and password to something more secure
+# you will need to reflect those changes in the env vars below
 
 echo "root=password" >> /etc/couchdb/local.ini 
 
+# use sed to find and replace the default localhost IP with 0.0.0.0 in default.ini
 
 sed -i -e 's/bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /etc/couchdb/default.ini
 
@@ -57,7 +64,11 @@ cd
 
 cd openwhisk/ansible
 
+# init db 
+
 ansible-playbook initdb.yml
+
+# export OW_DB env vars. if you changed username and password for couchdb above, change it here also
 
 export OW_DB=CouchDB
 export OW_DB_USERNAME=root	
@@ -68,6 +79,7 @@ export OW_DB_PORT=5984
 
 ansible-playbook setup.yml
 
+# build and deploy using ansible 
 
 cd
 
