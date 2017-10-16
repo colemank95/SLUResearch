@@ -18,11 +18,6 @@ while true; do
     esac
 done
 
-# general update
-
-apt-get update
-
-apt-get upgrade
 
 # install git and clone openwhisk repo to home directory
 
