@@ -28,6 +28,8 @@ apt-get upgrade
 
 apt-get install git -y
 
+apt-get install vim -y
+
 cd
 
 git clone https://github.com/apache/incubator-openwhisk.git openwhisk
@@ -55,10 +57,9 @@ sed -i -e 's/bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /etc/couchdb/def
 
 restart couchdb
 
-
-sudo apt-get install python-pip
-sudo pip install ansible==2.3.0.0
-sudo pip install jinja2==2.9.6
+apt-get install python-pip -y
+yes | pip install ansible==2.3.0.0 -y
+yes | pip install jinja2==2.9.6 -y
 
 cd 
 
@@ -89,11 +90,9 @@ cd openwhisk
 
 cd ansible
 
-
 ansible-playbook couchdb.yml
 ansible-playbook initdb.yml
 ansible-playbook wipe.yml
 ansible-playbook apigateway.yml
 ansible-playbook openwhisk.yml
 ansible-playbook postdeploy.yml
-
