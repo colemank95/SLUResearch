@@ -19,6 +19,33 @@ while true; do
 done
 
 
+# install Docker
+
+apt-get update
+
+apt-get install \
+    linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual -y 
+
+apt-get update
+
+apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common -y
+
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+apt-get update
+
+apt-get install docker-ce -y
+
 # install git and clone openwhisk repo to home directory
 
 apt-get install git -y
@@ -28,6 +55,10 @@ apt-get install vim -y
 cd
 
 git clone https://github.com/apache/incubator-openwhisk.git openwhisk
+
+groupadd docker
+
+sudo usermod -aG docker $USER
 
 # run initial setup for ubuntu native development tools
 
