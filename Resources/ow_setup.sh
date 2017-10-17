@@ -23,15 +23,15 @@ done
 
 apt-get update
 
-apt-get upgrade
+apt-get -y upgrade
 
-apt-get update
+#apt-get update
 
-apt-get install \
-    linux-image-extra-$(uname -r) \
-    linux-image-extra-virtual -y 
+#apt-get install \
+#    linux-image-extra-$(uname -r) \
+#    linux-image-extra-virtual -y 
 
-apt-get update
+#apt-get update
 
 #apt-get install \
 #    apt-transport-https \
