@@ -23,7 +23,7 @@ done
 
 apt-get update
 
-apt-get -y upgrade
+# apt-get -y upgrade
 
 #apt-get update
 
