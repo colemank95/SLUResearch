@@ -89,7 +89,7 @@ sed -i -e 's/bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /etc/couchdb/def
 restart couchdb
 
 sudo apt-get install python-pip -y
-sudo pip install ansible==2.3.0.0 
+sudo apt-get install ansible 
 sudo pip install jinja2==2.9.6 
 
 cd 
