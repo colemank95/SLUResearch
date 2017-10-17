@@ -33,27 +33,27 @@ apt-get install \
 
 apt-get update
 
-apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common -y
+#apt-get install \
+#    apt-transport-https \
+#    ca-certificates \
+#    curl \
+#    software-properties-common -y
 
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+#add-apt-repository \
+#   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#   $(lsb_release -cs) \
+#   stable"
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-apt-get update
+#apt-get update
 
-sudo apt-get install docker-ce -y
+#sudo apt-get install docker-ce -y
 
 
-groupadd docker
+#groupadd docker
 
-sudo usermod -aG docker $USER
+#sudo usermod -aG docker $USER
 
 # install git and clone openwhisk repo to home directory
 
@@ -106,10 +106,16 @@ export OW_DB=CouchDB
 export OW_DB_USERNAME=root	
 export OW_DB_PASSWORD=password
 export OW_DB_PROTOCOL=http
-export OW_DB_HOST=ifconfig eth0 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+ip=$(ip route get 8.8.8.8 | awk 'NR==1 {print $NF}')
+export OW_DB_HOST=$ip
 export OW_DB_PORT=5984
 
 sudo ansible-playbook setup.yml
+
+sudo sed -i -e 's/db_username=whisk_admin/db_username=root/g' db_local.ini
+sudo sed -i -e 's/db_password=some_passw0rd/db_password=password/g' db_local.ini
+sudo cat db_local.ini | sed 's/'db_host=172.17.0.1'/'"$ip"'/'
+
 
 # build and deploy using ansible 
 
