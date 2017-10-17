@@ -23,6 +23,10 @@ done
 
 apt-get update
 
+apt-get upgrade
+
+apt-get update
+
 apt-get install \
     linux-image-extra-$(uname -r) \
     linux-image-extra-virtual -y 
@@ -44,7 +48,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 apt-get update
 
-apt-get install docker-ce -y
+sudo apt-get install docker-ce -y
 
 
 groupadd docker
@@ -53,9 +57,9 @@ sudo usermod -aG docker $USER
 
 # install git and clone openwhisk repo to home directory
 
-apt-get install git -y
+sudo apt-get install git -y
 
-apt-get install vim -y
+sudo apt-get install vim -y
 
 cd
 
@@ -67,11 +71,11 @@ cd openwhisk
 
 cd tools/ubuntu-setup
 
-./all.sh
+sudo ./all.sh
 
 # install and setup couchdb
 
-apt-get install -V couchdb -y
+sudo apt-get install -V couchdb -y
 
 # feel free to chane this username and password to something more secure
 # you will need to reflect those changes in the env vars below
@@ -84,9 +88,9 @@ sed -i -e 's/bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /etc/couchdb/def
 
 restart couchdb
 
-apt-get install python-pip -y
-yes | pip install ansible==2.3.0.0 
-yes | pip install jinja2==2.9.6 
+sudo apt-get install python-pip -y
+sudo pip install ansible==2.3.0.0 
+sudo pip install jinja2==2.9.6 
 
 cd 
 
@@ -105,7 +109,7 @@ export OW_DB_PROTOCOL=http
 export OW_DB_HOST=ifconfig eth0 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
 export OW_DB_PORT=5984
 
-ansible-playbook setup.yml
+sudo ansible-playbook setup.yml
 
 # build and deploy using ansible 
 
@@ -117,9 +121,9 @@ cd openwhisk
 
 cd ansible
 
-ansible-playbook couchdb.yml
-ansible-playbook initdb.yml
-ansible-playbook wipe.yml
-ansible-playbook apigateway.yml
-ansible-playbook openwhisk.yml
-ansible-playbook postdeploy.yml
+sudo ansible-playbook couchdb.yml
+sudo ansible-playbook initdb.yml
+sudo ansible-playbook wipe.yml
+sudo ansible-playbook apigateway.yml
+sudo ansible-playbook openwhisk.yml
+sudo ansible-playbook postdeploy.yml
