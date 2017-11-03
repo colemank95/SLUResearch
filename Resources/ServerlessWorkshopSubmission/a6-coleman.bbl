@@ -37,9 +37,9 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[\protect\citeauthoryear{Face Recognition}{Face Recognition}{2017}]%
+\bibitem[\protect\citeauthoryear{Adam Geitgey}{Adam Geitgey}{2017}]%
         {ageitgey}
-Face Recognition \bibinfo{year}{2017}\natexlab{}.
+Adam Geitgey \bibinfo{year}{2017}\natexlab{}.
 \newblock \bibinfo{title}{Face Recognition}.
 \newblock   (\bibinfo{year}{2017}).
 \newblock

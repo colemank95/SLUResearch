@@ -23,9 +23,9 @@ done
 
 apt-get update
 
-# apt-get -y upgrade
+#  apt-get -y upgrade
 
-#apt-get update
+# apt-get update
 
 #apt-get install \
 #    linux-image-extra-$(uname -r) \
@@ -133,3 +133,10 @@ sudo ansible-playbook wipe.yml
 sudo ansible-playbook apigateway.yml
 sudo ansible-playbook openwhisk.yml
 sudo ansible-playbook postdeploy.yml
+
+cd ..
+cp /bin/wsk /bin
+
+wsk property set --apihost 127.0.0.1
+
+wsk property set --auth `cat ansible/files/auth.guest`
